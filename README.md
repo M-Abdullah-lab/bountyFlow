@@ -40,14 +40,17 @@ bountyFlow turns a target hostname into a concise, reviewable asset snapshot. It
 - [Technology rules](#technology-rules)
 - [Architecture](#architecture)
 - [Responsible use](#responsible-use)
-- [Quality](#quality)
 
 ## 🚀 Quick start
 
 ```bash
 git clone https://github.com/M-Abdullah-lab/bountyFlow.git
 cd bountyFlow
-python -m pip install -r requirements.txt
+
+python -m venv env
+source env/bin/activate
+
+pip install -r requirements.txt
 
 # Read-only collection
 python main.py example.com --authorized
