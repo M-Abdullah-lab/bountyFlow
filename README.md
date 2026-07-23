@@ -172,8 +172,6 @@ bountyFlow/
 │   ├── whois_lookup.py          # quiet, fault-tolerant WHOIS collection
 │   ├── port_scanner.py          # opt-in TCP and UDP checks
 │   └── report_generator.py      # JSON and TXT reporting
-├── tests/
-├── reports/
 └── requirements.txt
 ```
 
