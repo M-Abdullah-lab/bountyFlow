@@ -1,0 +1,345 @@
+[
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "nginx",
+    "technology": "Nginx",
+    "category": "Web Server"
+  },
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "apache",
+    "technology": "Apache",
+    "category": "Web Server"
+  },
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "IIS",
+    "technology": "Microsoft IIS",
+    "category": "Web Server"
+  },
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "LiteSpeed",
+    "technology": "LiteSpeed",
+    "category": "Web Server"
+  },
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "cloudflare",
+    "technology": "Cloudflare",
+    "category": "CDN / WAF"
+  },
+  {
+    "type": "header",
+    "header": "server",
+    "pattern": "openresty",
+    "technology": "OpenResty",
+    "category": "Web Server"
+  },
+  {
+    "type": "header",
+    "header": "x-powered-by",
+    "pattern": "PHP",
+    "technology": "PHP",
+    "category": "Language"
+  },
+  {
+    "type": "header",
+    "header": "x-powered-by",
+    "pattern": "ASP\\.NET",
+    "technology": "ASP.NET",
+    "category": "Framework"
+  },
+  {
+    "type": "header",
+    "header": "x-powered-by",
+    "pattern": "Express",
+    "technology": "Express.js",
+    "category": "Framework"
+  },
+  {
+    "type": "header",
+    "header": "x-powered-by",
+    "pattern": "Next\\.js",
+    "technology": "Next.js",
+    "category": "Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "/wp-content/",
+    "technology": "WordPress",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "/wp-includes/",
+    "technology": "WordPress",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "content=\"WordPress",
+    "technology": "WordPress",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "/sites/default/files/",
+    "technology": "Drupal",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "Drupal\\.settings",
+    "technology": "Drupal",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "content=\"Joomla",
+    "technology": "Joomla",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "/media/jui/",
+    "technology": "Joomla",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "Shopify\\.theme",
+    "technology": "Shopify",
+    "category": "E-Commerce"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "cdn\\.shopify\\.com",
+    "technology": "Shopify",
+    "category": "E-Commerce"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "static\\.wixstatic\\.com",
+    "technology": "Wix",
+    "category": "Website Builder"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "squarespace\\.com",
+    "technology": "Squarespace",
+    "category": "Website Builder"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "ghost\\.io|content\\.ghost\\.org",
+    "technology": "Ghost",
+    "category": "CMS"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "react(?:\\.min)?\\.js|__REACT|data-reactroot",
+    "technology": "React",
+    "category": "JS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "angular(?:\\.min)?\\.js|ng-version|ng-app",
+    "technology": "Angular",
+    "category": "JS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "vue(?:\\.min)?\\.js|__vue__|data-v-",
+    "technology": "Vue.js",
+    "category": "JS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "jquery[.-][\\d.]+(?:\\.min)?\\.js",
+    "technology": "jQuery",
+    "category": "JS Library"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "bootstrap(?:\\.min)?\\.(?:js|css)",
+    "technology": "Bootstrap",
+    "category": "CSS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "tailwind(?:css)?",
+    "technology": "Tailwind CSS",
+    "category": "CSS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "next/static|__NEXT_DATA__",
+    "technology": "Next.js",
+    "category": "JS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "__nuxt__|_nuxt/",
+    "technology": "Nuxt.js",
+    "category": "JS Framework"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "gatsby-|/gatsby-",
+    "technology": "Gatsby",
+    "category": "Static Site Generator"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "google-analytics\\.com|gtag\\(|GoogleAnalyticsObject",
+    "technology": "Google Analytics",
+    "category": "Analytics"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "googletagmanager\\.com",
+    "technology": "Google Tag Manager",
+    "category": "Analytics"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "hotjar\\.com",
+    "technology": "Hotjar",
+    "category": "Analytics"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "segment\\.com|analytics\\.js",
+    "technology": "Segment",
+    "category": "Analytics"
+  },
+  {
+    "type": "body",
+    "header": null,
+    "pattern": "cdn\\.mxpnl\\.com|mixpanel",
+    "technology": "Mixpanel",
+    "category": "Analytics"
+  },
+  {
+    "type": "header",
+    "header": "cf-ray",
+    "pattern": null,
+    "technology": "Cloudflare",
+    "category": "CDN / WAF"
+  },
+  {
+    "type": "header",
+    "header": "x-amz-cf-id",
+    "pattern": null,
+    "technology": "Amazon CloudFront",
+    "category": "CDN"
+  },
+  {
+    "type": "header",
+    "header": "x-azure-ref",
+    "pattern": null,
+    "technology": "Azure CDN",
+    "category": "CDN"
+  },
+  {
+    "type": "header",
+    "header": "x-fastly-request-id",
+    "pattern": null,
+    "technology": "Fastly",
+    "category": "CDN"
+  },
+  {
+    "type": "header",
+    "header": "x-varnish",
+    "pattern": null,
+    "technology": "Varnish Cache",
+    "category": "Cache"
+  },
+  {
+    "type": "header",
+    "header": "x-cache",
+    "pattern": "HIT|MISS",
+    "technology": "Caching Layer",
+    "category": "Cache"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "PHPSESSID",
+    "technology": "PHP",
+    "category": "Language"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "JSESSIONID",
+    "technology": "Java (Servlet)",
+    "category": "Language"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "ASP\\.NET_SessionId",
+    "technology": "ASP.NET",
+    "category": "Framework"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "laravel_session",
+    "technology": "Laravel",
+    "category": "Framework"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "_rails",
+    "technology": "Ruby on Rails",
+    "category": "Framework"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "django",
+    "technology": "Django",
+    "category": "Framework"
+  },
+  {
+    "type": "cookie",
+    "header": null,
+    "pattern": "wp-settings",
+    "technology": "WordPress",
+    "category": "CMS"
+  }
+]
