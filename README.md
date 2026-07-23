@@ -182,17 +182,10 @@ bountyFlow/
 4. Treat missing headers, versions, banners, and technologies as review signals—not vulnerabilities.
 5. Protect collected data and remove it when the engagement’s retention policy requires it.
 
-## ✅ Quality
 
-The project includes regression coverage for target validation, reporting, external signature validation, CORS classification, shared HTTP-context reuse, and banner cleanup.
 
-```bash
-python -m unittest discover -s tests -v
-```
+## 📄 License
 
-## 📄 Documentation & license
-
-- Full project documentation: [`docs/bountyFlow_Project_Documentation.pdf`](docs/bountyFlow_Project_Documentation.pdf)
 - License: [MIT](LICENSE)
 
 <div align="center">
