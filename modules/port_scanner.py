@@ -47,36 +47,41 @@ def _safe_banner(data: bytes) -> str | None:
     return " ".join(text.split())[:240] or None
 
 
-def _grab_banner(sock: socket.socket, port: int) -> str | None:
+def _grab_banner(sock: socket.socket, port: int, host_header: str) -> str | None:
     """Read an unsolicited greeting; HTTP receives a minimal HEAD request only."""
     try:
         if port in HTTP_PORTS:
-            sock.sendall(b"HEAD / HTTP/1.0\r\nHost: localhost\r\nConnection: close\r\n\r\n")
+            sock.sendall(f"HEAD / HTTP/1.0\r\nHost: {host_header}\r\nConnection: close\r\n\r\n".encode("ascii", errors="replace"))
         return _safe_banner(sock.recv(1024))
     except (socket.timeout, OSError):
         return None
 
 
-def scan_port(ip: str, port: int, timeout: float = 1.5) -> dict[str, Any]:
+def scan_port(ip: str, port: int, host_header: str, timeout: float = 1.5) -> dict[str, Any]:
     """Perform one TCP connect check and a bounded, non-authenticating banner read."""
     service = PORT_INFO.get(port, {}).get("service", "Unknown")
     try:
         with socket.create_connection((ip, port), timeout=timeout) as sock:
             sock.settimeout(timeout)
-            return {"port": port, "open": True, "service": service, "banner": _grab_banner(sock, port)}
+            return {"port": port, "open": True, "service": service, "banner": _grab_banner(sock, port, host_header)}
     except OSError:
         return {"port": port, "open": False, "service": service, "banner": None}
 
 
-def run_port_scan(ip: str, ports: list[int] | None = None, max_workers: int = 20) -> dict[str, list[dict[str, Any]]]:
-    """Scan a deliberately small TCP port set concurrently."""
+def run_port_scan(ip: str, host_header: str, ports: list[int] | None = None, max_workers: int = 20) -> dict[str, list[dict[str, Any]]]:
+    """Scan a deliberately small TCP port set concurrently.
+
+    host_header is the original target hostname, sent as the Host header on
+    HTTP-family ports so name-based virtual hosts and CDNs return the real
+    response instead of a default/mismatched vhost.
+    """
     ports = DEFAULT_PORTS if ports is None else ports
     open_ports: list[dict[str, Any]] = []
     closed_ports: list[dict[str, Any]] = []
     if not ports:
         return {"open": open_ports, "closed": closed_ports}
     with concurrent.futures.ThreadPoolExecutor(max_workers=min(max_workers, len(ports))) as executor:
-        for outcome in executor.map(lambda port: scan_port(ip, port), ports):
+        for outcome in executor.map(lambda port: scan_port(ip, port, host_header), ports):
             entry = {**outcome, "risk": PORT_INFO.get(outcome["port"], {}).get("risk", "Unknown")}
             (open_ports if outcome["open"] else closed_ports).append(entry)
     return {"open": sorted(open_ports, key=lambda item: item["port"]), "closed": sorted(closed_ports, key=lambda item: item["port"])}

@@ -62,7 +62,8 @@ def _write_txt_report(f, domain: str, data: Dict[str, Any], timestamp: str):
     # IP Info
     ip_data = data.get("ip_info", {})
     f.write(f"[1] IP INFORMATION\n{thin}\n")
-    f.write(f"  IPv4 Address : {ip_data.get('ipv4', 'N/A')}\n")
+    f.write(f"  IPv4 Address : {', '.join(ip_data.get('ipv4', [])) or 'Not resolved'}\n")
+    f.write(f"  IPv6 Address : {', '.join(ip_data.get('ipv6', [])) or 'Not resolved'}\n")
     f.write(f"  Hostname     : {ip_data.get('hostname', 'N/A')}\n\n")
 
     # HTTP Headers
@@ -82,6 +83,11 @@ def _write_txt_report(f, domain: str, data: Dict[str, Any], timestamp: str):
     f.write("  MISSING:\n")
     for h in hdr.get("missing_headers", {}):
         f.write(f"    ✗ {h}\n")
+    leaky = hdr.get("leaky_headers", {})
+    if leaky:
+        f.write("  INFO DISCLOSURE:\n")
+        for h, value in leaky.items():
+            f.write(f"    ! {h}: {value}\n")
     f.write("\n")
 
     # SSL

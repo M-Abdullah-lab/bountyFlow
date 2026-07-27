@@ -99,7 +99,7 @@ def run_collection(target: str, include_ports: bool, include_udp: bool = False) 
         scan_futures: dict[str, Any] = {}
         if address:
             if include_ports:
-                scan_futures["ports"] = executor.submit(run_port_scan, address)
+                scan_futures["ports"] = executor.submit(run_port_scan, address, target)
             if include_udp:
                 scan_futures["udp"] = executor.submit(run_udp_scan, address)
         elif include_ports or include_udp:
@@ -157,6 +157,8 @@ def show_results(data: dict[str, Any]) -> None:
     http.add_row("Server", str(headers.get("server", "Not disclosed")))
     http.add_row("Header score", f"[{color}]{score}/100[/{color}]")
     http.add_row("Missing controls", ", ".join(headers.get("missing_headers", {}).keys()) or "None detected")
+    leaky = headers.get("leaky_headers", {})
+    http.add_row("Info disclosure", ", ".join(f"{k}: {v}" for k, v in leaky.items()) or "None detected")
     http.add_row("CORS probe", str(headers.get("cors", {}).get("assessment", "Not tested")))
     console.print(http)
 
